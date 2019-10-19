@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const indexRouter = require('./routes/index');
+const router = require('./router');
 
-app.use('/api/', indexRouter);
+app.use('/api/', router);
 
 app.use(function (req, res, next) {
     res.status(404).json({
