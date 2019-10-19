@@ -1,5 +1,10 @@
+/**
+ Created by svend on 19/10/2019.
+ **/
+
 const express = require('express');
 const router = express.Router();
+const knex = require('knex')(require('./config/config.env.sql'));
 
 router.get('/test', function (req, res) {
     let result = {
