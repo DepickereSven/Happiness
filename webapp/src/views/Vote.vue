@@ -1,14 +1,14 @@
 <template>
     <v-container fluid fill-height>
         <v-layout align-center justify-center>
-            <template>
 
-                <v-card class="mx-auto" max-width="600">
-                    <v-img :src="selectedPic.src" :aspect-ratio="16/9">
+            <template v-if="!voted">
+                <v-card class="mx-auto" max-width="620">
+                    <v-img :src="selectedHappyPic.src" :aspect-ratio="16/9">
                         <v-container fill-height fuild pa-2>
                             <v-layout fill-height>
                                 <v-flex xs12 text-xs-right>
-                                    <div v-html="selectedPic.location"></div>
+                                    <div v-html="selectedHappyPic.location"></div>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -35,8 +35,30 @@
                         </v-chip>
                     </v-card-text>
                 </v-card>
-
             </template>
+
+            <template v-else>
+                <v-card class="mx-auto" max-width="620">
+                    <v-img :src="selectedTomorrowPic.src" :aspect-ratio="16/9">
+                        <v-container fill-height fuild pa-2>
+                            <v-layout fill-height>
+                                <v-flex xs12 text-xs-right>
+                                    <div v-html="selectedTomorrowPic.location"></div>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-img>
+                    <v-card-title>
+                        <div class="display-1 mb-2">See you tomorrow</div>
+                        <div class="title font-weight-regular grey--text" >No mather how you day went, just relax and enjoy the time left!</div>
+                    </v-card-title>
+
+                    <v-divider class="mt-6 mx-4"></v-divider>
+
+                </v-card>
+            </template>
+
+
         </v-layout>
     </v-container>
 </template>
@@ -50,8 +72,13 @@
             handle.init(this);
         },
         data: () => ({
+            voted: null,
             date: null,
-            selectedPic: {
+            selectedHappyPic: {
+                src: null,
+                location: null
+            },
+            selectedTomorrowPic: {
                 src: null,
                 location: null
             },
