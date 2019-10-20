@@ -50,7 +50,7 @@
                     </v-img>
                     <v-card-title>
                         <div class="display-1 mb-2">See you tomorrow</div>
-                        <div class="title font-weight-regular grey--text" >No mather how you day went, just relax and enjoy the time left!</div>
+                        <div class="title font-weight-regular grey--text" >No mather how your day went, just relax and enjoy the time left!</div>
                     </v-card-title>
 
                     <v-divider class="mt-6 mx-4"></v-divider>
