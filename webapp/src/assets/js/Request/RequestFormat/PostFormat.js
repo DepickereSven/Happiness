@@ -7,7 +7,10 @@ export default (function () {
     let fetchRequestForGettingData = function (fetchData) {
         return fetch(fetchData.getSpecifiedElement ? fetchData.Url + fetchData.specifiedElement : fetchData.Url, {
             method: fetchData.method,
-            body: fetchData.body
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(fetchData.body),
         }).then(response => {
             if (response.ok) {
                 return response.json();
@@ -15,7 +18,11 @@ export default (function () {
                 return {error: true, msg: response.status, data: response};
             }
         }).then(json => {
-            return {error: false, msg: 'ok', data: json};
+            if (json.status){
+                return {error: false, msg: 'ok', data: json};
+            } else {
+                return {error: true, msg: '', data: json};
+            }
         }).catch(function (error) {
             console.log('Request failed ', error);
             return {error: true, msg: '', data: error};
