@@ -82,3 +82,42 @@ response will be (if there where no errors) :
 
 ```
 
+
+### BASE ADDRESS FOR VOTE - day
+
+HTTP verb | Endpoint                                        	| Description                          | 
+----------|-----------------------------------------------------|---------------------------------------|
+GET      |```/api/v1/stats/day```   	|  managers can see an overview of the current day
+
+response will be (if there where no errors) :
+```json
+
+{
+    "status": true,
+    "message": "ok",
+    "data": [
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 1,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 2,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 3,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 4,
+            "happinessIndicator": "happy"
+        }
+    ]
+}
+
+```
+
