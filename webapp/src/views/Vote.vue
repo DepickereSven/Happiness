@@ -43,16 +43,13 @@
 
 <script>
 
-    // import requestHandler from "../assets/js/Request/requestHandler"
     import handle from "../assets/js/Vue/Vote/handle"
 
     export default {
         created: function (){
-            // this.requestHandler = requestHandler;
             handle.init(this);
         },
         data: () => ({
-            requestHandler: null,
             date: null,
             selectedPic: {
                 src: null,
