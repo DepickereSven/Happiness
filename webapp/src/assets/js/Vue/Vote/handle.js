@@ -10,7 +10,12 @@ export default (function () {
 
     const init = function (_self) {
         _self.date = moment().format('dddd MMM YYYY');
-        _self.selectedPic = _self.happinessPic[selectRandomPic(_self)];
+        if (_self.$store.state.voted === null || _self.date === _self.$store.state.voted) {
+            console.log("heey");
+            _self.voted = true;
+        }
+        _self.selectedHappyPic = _self.happinessPic[selectRandomPic(_self.happinessPic)];
+        _self.selectedTomorrowPic = _self.tomorrowPic[selectRandomPic(_self.tomorrowPic)];
     };
 
 
@@ -19,15 +24,20 @@ export default (function () {
             date: moment().format('YYYY-MM-DD'),
             happinessIndicator: vote.toLowerCase()
         });
-        console.log(result);
+        if (result){
+            _self.voted = true;
+            _self.$store.commit('updateVoted', _self.date)
+        } else {
+            // TODO error
+        }
     };
 
 
     // ****** HELP FUNCTION ****** //
 
-    function selectRandomPic(_self) {
+    function selectRandomPic(arrayPic) {
         let min = 0;
-        let max = _self.happinessPic.length - 1;
+        let max = arrayPic.length - 1;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
