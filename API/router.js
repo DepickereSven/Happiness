@@ -5,6 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const vote = require('./routes/vote');
+const stats = require('./routes/stats');
 
 router.post('/test', function (req, res) {
     let result = {
@@ -21,9 +22,7 @@ router.get('/stats/day', function (req, res) {
 
 });
 
-router.get('/stats/week', function (req, res) {
-
-});
+router.get('/stats/week', stats.week);
 
 router.get('/stats/month', function (req, res) {
 
