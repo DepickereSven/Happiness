@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const PORT = 8001;
+
 app.use(bodyParser.json());
 
 const router = require('./router');
@@ -20,8 +22,8 @@ app.use(function (req, res, next) {
     })
 });
 
-app.listen(8001, function () {
-    console.log('app listening at port %s', 8001);
+app.listen(PORT, function () {
+    console.log('app listening at port %s', PORT);
 });
 
 
