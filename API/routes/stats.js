@@ -26,3 +26,24 @@ exports.week = function (req, res) {
             )
         })
 };
+
+exports.day = function (req, res) {
+    const today = moment().format('YYYY-MM-DD');
+    knex('votes')
+        .where('date', today)
+        .then(function (resp) {
+            res.json({
+                status: true,
+                message: 'ok',
+                data: resp
+            })
+        })
+        .catch(function (error) {
+            res.json(
+                {
+                    status: false,
+                    msg: error.code
+                }
+            )
+        })
+};

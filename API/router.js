@@ -18,9 +18,7 @@ router.post('/test', function (req, res) {
 router.post('/vote', vote.vote);
 
 
-router.get('/stats/day', function (req, res) {
-
-});
+router.get('/stats/day', stats.day);
 
 router.get('/stats/week', stats.week);
 
