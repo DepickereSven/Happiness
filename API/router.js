@@ -22,9 +22,7 @@ router.get('/stats/day', stats.day);
 
 router.get('/stats/week', stats.week);
 
-router.get('/stats/month', function (req, res) {
-
-});
+router.get('/stats/month', stats.month);
 
 
 module.exports = router;
