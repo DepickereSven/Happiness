@@ -53,8 +53,8 @@ exports.week = function (req, res) {
 exports.month = function (req, res) {
     const currentMonth = moment().month();
     const currentYear = moment().year();
-    const firstDayOfTheMonth = moment([currentYear, 0, 1 ]).month(currentMonth).format("YYYY-MM-DD");
-    const lastDayOfTheMonth = moment([currentYear, 0, 31 ]).month(currentMonth).format('YYYY-MM-DD');
+    const firstDayOfTheMonth = moment([currentYear, 0, 1]).month(currentMonth).format("YYYY-MM-DD");
+    const lastDayOfTheMonth = moment([currentYear, 0, 31]).month(currentMonth).format('YYYY-MM-DD');
 
     knex('votes')
         .whereBetween('date', [firstDayOfTheMonth, lastDayOfTheMonth])
