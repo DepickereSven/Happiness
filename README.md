@@ -81,6 +81,78 @@ response will be (if there where no errors) :
 }
 
 ```
+### BASE ADDRESS FOR VOTE - MONTH
+
+HTTP verb | Endpoint                                        	| Description                          | 
+----------|-----------------------------------------------------|---------------------------------------|
+GET      |```/api/v1/stats/month```   	|  managers can see an overview of the current month
+
+response will be (if there where no errors) :
+```json
+
+{
+    "status": true,
+    "message": "ok",
+    "data": [
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 1,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 2,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 3,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-19T22:00:00.000Z",
+            "id": 4,
+            "happinessIndicator": "happy"
+        },
+        {
+            "date": "2019-10-18T22:00:00.000Z",
+            "id": 5,
+            "happinessIndicator": "sad"
+        },
+        {
+            "date": "2019-10-18T22:00:00.000Z",
+            "id": 6,
+            "happinessIndicator": "sad"
+        },
+        {
+            "date": "2019-10-18T22:00:00.000Z",
+            "id": 7,
+            "happinessIndicator": "sad"
+        },
+        {
+            "date": "2019-10-18T22:00:00.000Z",
+            "id": 8,
+            "happinessIndicator": "ok"
+        },
+        {
+            "date": "2019-10-18T22:00:00.000Z",
+            "id": 9,
+            "happinessIndicator": "ok"
+        },
+        {
+            "date": "2019-10-17T22:00:00.000Z",
+            "id": 10,
+            "happinessIndicator": "ok"
+        },
+        {
+            "date": "2019-10-17T22:00:00.000Z",
+            "id": 11,
+            "happinessIndicator": "ok"
+        }
+    ]
+}
+
+```
 
 
 ### BASE ADDRESS FOR VOTE - day
@@ -118,6 +190,3 @@ response will be (if there where no errors) :
         }
     ]
 }
-
-```
-
