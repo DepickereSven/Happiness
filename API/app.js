@@ -9,9 +9,23 @@ const app = express();
 
 const PORT = 8001;
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const router = require('./router');
+
+app.use('/', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    if ('OPTIONS' === req.method) {
+        res.sendStatus(200);
+    }
+    else {
+        next();
+    }
+});
 
 app.use('/api/v1/', router);
 
