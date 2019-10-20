@@ -5,8 +5,15 @@ import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {},
-    mutations: {},
+    state: {
+        voted: null
+    },
+    plugins: [createPersistedState()],
+    mutations: {
+        updateVoted(state, newDate) {
+            state.voted = newDate;
+        }
+    },
     actions: {},
     modules: {}
 })
