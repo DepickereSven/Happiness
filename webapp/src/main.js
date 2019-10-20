@@ -7,6 +7,7 @@ Vue.config.productionTip = false;
 
 import Default from './layouts/Default'
 import Empty from './layouts/Empty'
+import vuetify from './plugins/vuetify';
 
 Vue.component('default-layout', Default);
 Vue.component('empty-layout', Empty);
@@ -14,5 +15,6 @@ Vue.component('empty-layout', Empty);
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount('#app');
