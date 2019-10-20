@@ -4,19 +4,17 @@
 
 const express = require('express');
 const router = express.Router();
-const knex = require('knex')(require('./config/config.env.sql'));
+const vote = require('./routes/vote');
 
-router.get('/test', function (req, res) {
+router.post('/test', function (req, res) {
     let result = {
-      data: 'ok'
+        data: 'ok'
     };
     res.json(result);
 });
 
 
-router.post('/vote', function (req, res) {
-
-});
+router.post('/vote', vote.vote);
 
 
 router.get('/stats/day', function (req, res) {
