@@ -2,9 +2,9 @@
  Created by svend on 20/10/2019.
  **/
 
-const getRequest = require('../../RequestFormat/GetFormat');
-const urlModule = require('../../urlModule');
-const errorMessages = require('../../errorMessages');
+import getRequest from "../../RequestFormat/GetFormat"
+import urlModule from "../../urlModule"
+import errorMessages from "../../errorMessages"
 
 export default (function () {
 

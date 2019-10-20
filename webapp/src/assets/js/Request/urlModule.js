@@ -2,7 +2,7 @@
  Created by svend on 20/10/2019.
  **/
 
-module.exports = (function () {
+export default (function () {
 
     const IP = "localhost";
     const PORT = "8001";

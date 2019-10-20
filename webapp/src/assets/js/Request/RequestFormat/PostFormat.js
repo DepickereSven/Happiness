@@ -2,7 +2,7 @@
  Created by svend on 20/10/2019.
  **/
 
-module.exports = (function () {
+export default (function () {
 
     let fetchRequestForGettingData = function (fetchData) {
         return fetch(fetchData.getSpecifiedElement ? fetchData.Url + fetchData.specifiedElement : fetchData.Url, {

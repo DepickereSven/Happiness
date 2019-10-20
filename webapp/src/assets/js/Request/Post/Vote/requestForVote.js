@@ -2,14 +2,13 @@
  Created by svend on 20/10/2019.
  **/
 
-const postRequest = require('../../RequestFormat/PostFormatForText');
-const urlModule = require('../../urlModule');
-const errorMessages = require('../../errorMessages');
-
+import postRequest from "../../RequestFormat/PostFormat"
+import urlModule from "../../urlModule"
+import errorMessages from "../../errorMessages"
 
 export default (function () {
 
-    const makeAVote = async function (formData, _self) {
+    const makeAVote = async function (formData) {
         const response = await postRequest.fetchRequestForGettingData({
             Url: urlModule.url.vote,
             getSpecifiedElement: false,
