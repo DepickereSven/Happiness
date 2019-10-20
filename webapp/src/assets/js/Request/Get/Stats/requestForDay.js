@@ -8,7 +8,7 @@ import errorMessages from "../../errorMessages"
 
 export default (function () {
 
-    const getTheStats = async function (_self) {
+    const getTheStats = async function () {
         const response = (await getRequest.fetchRequestForGettingData({
             Url: urlModule.url.stats.day
         }));
