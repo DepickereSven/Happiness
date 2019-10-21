@@ -16,7 +16,7 @@ export default (function () {
             body: formData
         });
         if (response.error) {
-            response.msg = errorMessages.messages.vote;
+            response.msg = errorMessages.messages.login;
         }
         return response;
     };
