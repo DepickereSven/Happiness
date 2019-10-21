@@ -5,7 +5,12 @@
 export default (function () {
 
     let fetchRequestForGettingData = function (fetchData) {
-        return fetch(fetchData.getSpecifiedElement ? fetchData.Url + fetchData.specifiedElement : fetchData.Url)
+        return fetch(fetchData.getSpecifiedElement ? fetchData.Url + fetchData.specifiedElement : fetchData.Url, {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + fetchData.token
+            }
+        })
             .then(response => {
                 if (response.ok) {
                     return response.json();
