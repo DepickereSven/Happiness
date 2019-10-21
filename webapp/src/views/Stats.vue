@@ -69,7 +69,7 @@
 
                 <div v-else>
                     <div id="chart">
-                        <apexchart type=pie width=380 :options="chartOptionsDay" :series="dayData" />
+                        <apexchart type=pie width=500 :options="chartOptionsDay" :series="dayData" />
                     </div>
                 </div>
 
