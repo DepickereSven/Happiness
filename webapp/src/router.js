@@ -49,17 +49,17 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    const isLoggedIn = JSON.parse(localStorage.getItem('UH'));
+    const isLoggedIn = Store.state.login;
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
     if (isLoggedIn !== null) {
         if (requiresAuth && !isLoggedIn.user) {
-            next('/');
+            next('/login');
         } else {
             next();
         }
     } else {
         if (requiresAuth) {
-            next('/');
+            next('/login');
         } else {
             next();
         }
