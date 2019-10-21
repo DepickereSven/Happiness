@@ -2,7 +2,7 @@
     <v-container fluid fill-height>
         <v-layout align-center justify-center>
 
-            <div id="wrapper">
+            <div id="wrapper" v-if="weekOrMonth">
                 <div id="chart-line">
                     <apexchart type=line height=160 :options="chartOptionsLine1" :series="happy"/>
                 </div>
@@ -16,6 +16,7 @@
                 </div>
             </div>
 
+            
 
         </v-layout>
     </v-container>
@@ -26,10 +27,11 @@
     import handle from "../assets/js/Vue/Stats/handle"
 
     export default {
-        created: async function (){
+        created: async function () {
             await handle.init(this);
         },
         data: () => ({
+            weekOrMonth: false,
             happy: [{
                 name: "Happy",
                 data: []
@@ -111,9 +113,7 @@
                 }
             }
         }),
-        computed: {
-
-        }
+        computed: {}
     }
 </script>
 
