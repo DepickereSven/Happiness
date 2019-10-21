@@ -16,7 +16,7 @@ export default (function () {
     };
 
     async function generateChartData(_self, graphView){
-        let originalData = await getData(graphView);
+        let originalData = await getData(_self, graphView);
         if (originalData.length === 0){
             _self.selectedEmptyPic = _self.emptyPic[tools.selectRandomPic(_self.emptyPic)];
             _self.error = true;
@@ -27,8 +27,8 @@ export default (function () {
 
     // ****** HELP FUNCTION ****** //
 
-    async function getData(graphView) {
-        let result = await requestHandler.request.stats[graphView.toLowerCase()]();
+    async function getData(_self, graphView) {
+        let result = await requestHandler.request.stats[graphView.toLowerCase()](_self);
         return result.data.data.map(function (el) {
             el.date = moment(el.date).valueOf();
             return el;
