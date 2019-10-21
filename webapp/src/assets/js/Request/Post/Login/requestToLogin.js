@@ -8,7 +8,7 @@ import errorMessages from "../../errorMessages"
 
 export default (function () {
 
-    const makeAVote = async function (formData) {
+    const loginUser = async function (formData) {
         const response = await postRequest.fetchRequestForGettingData({
             Url: urlModule.url.login,
             getSpecifiedElement: false,
@@ -22,7 +22,7 @@ export default (function () {
     };
 
     return {
-        makeAVote
+        loginUser
     }
 
 })();
