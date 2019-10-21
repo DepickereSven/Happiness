@@ -13,9 +13,15 @@ export default (function () {
         _self.chartOptionsLine3 = {..._self.chartOptionsLine3, ..._self.otherOptions};
 
         let originalData = await getData();
-        _self.happy[0].data = buildData(filter('happy', originalData));
-        _self.ok[0].data = buildData(filter('ok', originalData));
-        _self.sad[0].data = buildData(filter('sad', originalData));
+        if (originalData.length !== 0){
+
+        } else {
+            _self.happy[0].data = buildData(filter('happy', originalData));
+            _self.ok[0].data = buildData(filter('ok', originalData));
+            _self.sad[0].data = buildData(filter('sad', originalData));
+        }
+
+
     };
 
     // ****** HELP FUNCTION ****** //
