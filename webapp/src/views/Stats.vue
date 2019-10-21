@@ -5,7 +5,7 @@
             <v-row cols="12" sm="6" class="justify-space-evenly">
                 <div class="text-center" v-for="item in differentGraphTypes">
                     <div class="my-2">
-                        <v-btn x-large color="success" dark @click="changeChart(item.name)">
+                        <v-btn x-large color="indigo" dark @click="changeChart(item.name)">
                             <v-icon left>{{item.icon}}</v-icon>
                             {{item.name}}
                         </v-btn>
