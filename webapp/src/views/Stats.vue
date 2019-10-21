@@ -39,16 +39,31 @@
             <v-container v-else>
 
                 <div id="wrapper" v-if="weekOrMonth" >
-                    <div id="chart-line">
-                        <apexchart type=line height=160 :options="chartOptionsLine1" :series="happy"/>
-                    </div>
+                    <div v-if="week">
+                        <div id="chart-line">
+                            <apexchart type=line height=160 :options="chartOptionsLine1" :series="happyWeek"/>
+                        </div>
 
-                    <div id="chart-line2">
-                        <apexchart type=line height=160 :options="chartOptionsLine2" :series="ok"/>
-                    </div>
+                        <div id="chart-line2">
+                            <apexchart type=line height=160 :options="chartOptionsLine2" :series="okWeek"/>
+                        </div>
 
-                    <div id="chart-line3">
-                        <apexchart type=line height=160 :options="chartOptionsLine3" :series="sad"/>
+                        <div id="chart-line3">
+                            <apexchart type=line height=160 :options="chartOptionsLine3" :series="sadWeek"/>
+                        </div>
+                    </div>
+                    <div v-else>
+                        <div id="chart-line4">
+                            <apexchart type=line height=160 :options="chartOptionsLine1" :series="happyMonth"/>
+                        </div>
+
+                        <div id="chart-line5">
+                            <apexchart type=line height=160 :options="chartOptionsLine2" :series="okMonth"/>
+                        </div>
+
+                        <div id="chart-line6">
+                            <apexchart type=line height=160 :options="chartOptionsLine3" :series="sadMonth"/>
+                        </div>
                     </div>
                 </div>
 
@@ -75,6 +90,7 @@
         data: () => ({
             error: false,
             weekOrMonth: false,
+            week: false,
             differentGraphTypes: [
                 {
                     name: "Day",
@@ -109,15 +125,27 @@
             ],
 
             dayData: [],
-            happy: [{
+            happyWeek: [{
                 name: "Happy",
                 data: []
             }],
-            ok: [{
+            okWeek: [{
                 name: "Ok",
                 data: []
             }],
-            sad: [{
+            sadWeek: [{
+                name: "Sad",
+                data: []
+            }],
+            happyMonth: [{
+                name: "Happy",
+                data: []
+            }],
+            okMonth: [{
+                name: "Ok",
+                data: []
+            }],
+            sadMonth: [{
                 name: "Sad",
                 data: []
             }],
