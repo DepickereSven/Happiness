@@ -49,14 +49,21 @@ export default (function () {
     }
 
     function generateWeekOrMonthChart (_self, originalData){
-        _self.happy[0].data = buildData(filter('happy', originalData));
-        _self.ok[0].data = buildData(filter('ok', originalData));
-        _self.sad[0].data = buildData(filter('sad', originalData));
+        _self.happy[0].data = buildData(filter(tools.$Happy, originalData));
+        _self.ok[0].data = buildData(filter(tools.$Ok, originalData));
+        _self.sad[0].data = buildData(filter(tools.$Sad, originalData));
         _self.weekOrMonth = true;
         console.log(_self.weekOrMonth);
     }
 
     function generateDayChart(_self, originalData) {
+        tools.$status.forEach(function (status) {
+            let valuesFilterStatus = originalData.filter(function (el) {
+                return el.happinessIndicator === status
+            })[0];
+            _self.dayData.push(valuesFilterStatus.number);
+            _self.chartOptionsDay.labels.push(valuesFilterStatus.happinessIndicator.capitalize())
+        });
         _self.weekOrMonth = false;
     }
 
