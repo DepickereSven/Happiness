@@ -2,21 +2,49 @@
     <v-container fluid fill-height>
         <v-layout align-center justify-center>
 
-            <div id="wrapper" v-if="weekOrMonth">
-                <div id="chart-line">
-                    <apexchart type=line height=160 :options="chartOptionsLine1" :series="happy"/>
+
+            <v-container v-if="error">
+                <v-card class="mx-auto" max-width="620">
+                    <v-img :src="selectedEmptyPic.src" :aspect-ratio="16/9">
+                        <v-container fill-height fuild pa-2>
+                            <v-layout fill-height>
+                                <v-flex xs12 text-xs-right>
+                                    <div v-html="selectedEmptyPic.location"></div>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-img>
+                    <v-card-title>
+                        <div class="display-1 mb-2">No data yet...</div>
+                        <div class="title font-weight-regular grey--text" >Looks like you're to fast, come back later or switch graph</div>
+                    </v-card-title>
+
+                    <v-divider class="mt-6 mx-4"></v-divider>
+
+                </v-card>
+            </v-container>
+
+            <v-container v-else>
+                <div id="wrapper" v-if="weekOrMonth">
+                    <div id="chart-line">
+                        <apexchart type=line height=160 :options="chartOptionsLine1" :series="happy"/>
+                    </div>
+
+                    <div id="chart-line2">
+                        <apexchart type=line height=160 :options="chartOptionsLine2" :series="ok"/>
+                    </div>
+
+                    <div id="chart-line3">
+                        <apexchart type=line height=160 :options="chartOptionsLine3" :series="sad"/>
+                    </div>
                 </div>
 
-                <div id="chart-line2">
-                    <apexchart type=line height=160 :options="chartOptionsLine2" :series="ok"/>
-                </div>
+                <div v-else>
 
-                <div id="chart-line3">
-                    <apexchart type=line height=160 :options="chartOptionsLine3" :series="sad"/>
                 </div>
-            </div>
+            </v-container>
 
-            
+
 
         </v-layout>
     </v-container>
@@ -31,7 +59,28 @@
             await handle.init(this);
         },
         data: () => ({
+            error: false,
             weekOrMonth: false,
+            selectedEmptyPic: {
+                src: null,
+                location: null
+            },
+            emptyPic:[
+                {
+                    src: require('../assets/images/empty1.jpg'),
+                    location: '<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@philberndt?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Philipp Berndt"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span></a>',
+                },
+                {
+                    src: require('../assets/images/empty2.jpg'),
+                    location: "<a style=\"background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px\" href=\"https://unsplash.com/@jonasjacobsson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\" target=\"_blank\" rel=\"noopener noreferrer\" title=\"Download free do whatever you want high-resolution photos from Jonas Jacobsson\"><span style=\"display:inline-block;padding:2px 3px\"><svg xmlns=\"http://www.w3.org/2000/svg\" style=\"height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white\" viewBox=\"0 0 32 32\"><title>unsplash-logo</title><path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path></svg></span></a>"
+                },
+                {
+                    src: require('../assets/images/empty3.jpg'),
+                    location: "<a style=\"background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px\" href=\"https://unsplash.com/@patrickschoepflin?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\" target=\"_blank\" rel=\"noopener noreferrer\" title=\"Download free do whatever you want high-resolution photos from Patrick Schöpflin\"><span style=\"display:inline-block;padding:2px 3px\"><svg xmlns=\"http://www.w3.org/2000/svg\" style=\"height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white\" viewBox=\"0 0 32 32\"><title>unsplash-logo</title><path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path></svg></span></a>"
+                }
+            ],
+
+
             happy: [{
                 name: "Happy",
                 data: []
