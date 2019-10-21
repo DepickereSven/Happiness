@@ -171,7 +171,7 @@ You need to add the token from the `api/v1/login` to the headers in the request 
 
 ```
 
-format is `Bearer + " " + token`
+format is `Bearer + " " + token`__
 
 response will be (if there where no errors) :
 
