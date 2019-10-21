@@ -242,10 +242,6 @@
 
 <style scoped>
 
-    .column-elements {
-        flex-direction: column;
-    }
-
     .container.fill-height > .layout {
         height: auto;
         width: 100%;
@@ -258,6 +254,10 @@
     #chart{
         display: flex;
         justify-content: center;
+    }
+
+    .v-responsive__content .container.fill-height > .layout {
+        height: 100%;
     }
 
 </style>
