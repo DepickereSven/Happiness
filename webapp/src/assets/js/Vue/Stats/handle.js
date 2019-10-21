@@ -12,7 +12,7 @@ export default (function () {
         _self.chartOptionsLine1 = {..._self.chartOptionsLine1, ..._self.otherOptions};
         _self.chartOptionsLine2 = {..._self.chartOptionsLine2, ..._self.otherOptions};
         _self.chartOptionsLine3 = {..._self.chartOptionsLine3, ..._self.otherOptions};
-        await generateChartData(_self, 'day');
+        await generateChartData(_self, 'week');
     };
 
     async function generateChartData(_self, graphView){
