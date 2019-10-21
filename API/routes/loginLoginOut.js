@@ -3,6 +3,9 @@
  **/
 
 const knex = require('knex')(require('../config/config.env.sql'));
+const jwt = require('jsonwebtoken');
+
+const $secret = "#nj9WPkOp-vm+n..#45RZnB";
 
 exports.login = function (req, res) {
     let data = req.body;
@@ -12,29 +15,37 @@ exports.login = function (req, res) {
             userName: data.userName,
             password: data.password
         })
-        .count('userName as hit')
         .then(function (resp) {
-            if (resp[0].hit === 1) {
+            if (resp.length === 1) {
+                const token = jwt.sign({
+                    userName: resp[0].userName,
+                    userId: resp[0].id
+                },
+                    $secret,
+                    {
+                        expiresIn: "1h"
+                    });
                 res.json(
                     {
                         status: true,
-                        message: 'ok'
+                        message: 'ok',
+                        token: token
                     }
                 )
             } else {
-                res.json(
+                res.status(401).json(
                     {
                         status: false,
-                        msg: error.code
+                        message: 'Auth failed'
                     }
                 )
             }
         })
         .catch(function (error) {
-            res.json(
+            res.status(401).json(
                 {
                     status: false,
-                    msg: error.code
+                    message: 'Auth failed'
                 }
             )
         })
