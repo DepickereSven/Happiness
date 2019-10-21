@@ -4,6 +4,7 @@
 
 const moment = require("moment");
 import requestHandler from "../../Request/requestHandler"
+import tools from "../tools"
 
 export default (function () {
 
@@ -14,7 +15,8 @@ export default (function () {
 
         let originalData = await getData();
         if (originalData.length !== 0){
-
+            _self.selectedEmptyPic = _self.emptyPic[tools.selectRandomPic(_self.emptyPic)];
+            _self.error = true;
         } else {
             _self.happy[0].data = buildData(filter('happy', originalData));
             _self.ok[0].data = buildData(filter('ok', originalData));
