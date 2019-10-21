@@ -8,9 +8,10 @@ import errorMessages from "../../errorMessages"
 
 export default (function () {
 
-    const getTheStats = async function () {
+    const getTheStats = async function (_self) {
         const response = (await getRequest.fetchRequestForGettingData({
-            Url: urlModule.url.stats.day
+            Url: urlModule.url.stats.day,
+            token: _self.$store.state.login.token
         }));
         if (response.error) {
             response.msg = errorMessages.messages.stats.day;
