@@ -2,6 +2,8 @@
     <v-app id="inspire">
         <v-app-bar app color="indigo" dark>
             <v-toolbar-title>Happiness Indicator</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-icon @click="$router.push({name: 'login'})">mdi-login-variant </v-icon>
         </v-app-bar>
 
         <v-content>
