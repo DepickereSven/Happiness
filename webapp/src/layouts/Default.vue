@@ -3,6 +3,9 @@
         <v-app-bar app color="indigo" dark>
             <v-toolbar-title>Happiness Indicator</v-toolbar-title>
             <v-spacer></v-spacer>
+            <v-btn icon @click="$router.push({name: 'vote'})">
+                <v-icon>mdi-vote</v-icon>
+            </v-btn>
             <v-btn icon @click="$router.push({name: 'stats'})">
                 <v-icon>mdi-chart-areaspline-variant</v-icon>
             </v-btn>
