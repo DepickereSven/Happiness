@@ -7,6 +7,7 @@ const router = express.Router();
 const vote = require('./routes/vote');
 const stats = require('./routes/stats');
 const loginLoginOut = require('./routes/loginLoginOut');
+const checkAuth = require('./routes/checkAuth');
 
 router.post('/test', function (req, res) {
     let result = {
@@ -19,12 +20,11 @@ router.post('/login', loginLoginOut.login);
 
 router.post('/vote', vote.vote);
 
+router.get('/stats/day', checkAuth, stats.day);
 
-router.get('/stats/day', stats.day);
+router.get('/stats/week', checkAuth, stats.week);
 
-router.get('/stats/week', stats.week);
-
-router.get('/stats/month', stats.month);
+router.get('/stats/month', checkAuth, stats.month);
 
 
 module.exports = router;
