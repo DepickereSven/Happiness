@@ -6,6 +6,7 @@ import dayStats from "./Get/Stats/requestForDay"
 import weekStats from "./Get/Stats/requestForWeek"
 import monthStats from "./Get/Stats/requestForMonth"
 import vote from "./Post/Vote/requestForVote"
+import login from "./Post/Login/requestToLogin"
 
 export default (function () {
 
@@ -15,7 +16,8 @@ export default (function () {
             week: weekStats.getTheStats,
             month: monthStats.getTheStats
         },
-        vote: vote.makeAVote
+        vote: vote.makeAVote,
+        login: login.loginUser
     };
 
     return {
