@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 const vote = require('./routes/vote');
 const stats = require('./routes/stats');
+const loginLoginOut = require('./routes/loginLoginOut');
 
 router.post('/test', function (req, res) {
     let result = {
@@ -14,6 +15,7 @@ router.post('/test', function (req, res) {
     res.json(result);
 });
 
+router.post('/login', loginLoginOut.login);
 
 router.post('/vote', vote.vote);
 
