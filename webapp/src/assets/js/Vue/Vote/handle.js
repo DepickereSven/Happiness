@@ -11,8 +11,7 @@ export default (function () {
 
     const init = function (_self) {
         _self.date = moment().format('dddd MMM YYYY');
-        if (_self.$store.state.voted === null || _self.date === _self.$store.state.voted) {
-            console.log("heey");
+        if (_self.$store.state.voted !== null || _self.date === _self.$store.state.voted) {
             _self.voted = true;
         }
         _self.selectedHappyPic = _self.happinessPic[tools.selectRandomPic(_self.happinessPic)];
