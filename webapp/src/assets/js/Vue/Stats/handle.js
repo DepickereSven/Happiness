@@ -89,9 +89,6 @@ export default (function () {
     }
 
     function resetChartData(_self) {
-        // _self.happy[0].data = [];
-        // _self.ok[0].data = [];
-        // _self.sad[0].data = [];
         _self.dayData = [];
         _self.chartOptionsDay.labels = [];
     }
