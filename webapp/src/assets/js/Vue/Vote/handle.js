@@ -4,6 +4,7 @@
 
 const moment = require("moment");
 import requestHandler from "../../Request/requestHandler"
+import tools from "../tools"
 
 export default (function () {
 
@@ -14,10 +15,9 @@ export default (function () {
             console.log("heey");
             _self.voted = true;
         }
-        _self.selectedHappyPic = _self.happinessPic[selectRandomPic(_self.happinessPic)];
-        _self.selectedTomorrowPic = _self.tomorrowPic[selectRandomPic(_self.tomorrowPic)];
+        _self.selectedHappyPic = _self.happinessPic[tools.selectRandomPic(_self.happinessPic)];
+        _self.selectedTomorrowPic = _self.tomorrowPic[tools.selectRandomPic(_self.tomorrowPic)];
     };
-
 
     const voteRequest = async function (_self, vote) {
         let result = await requestHandler.request.vote({
@@ -31,16 +31,6 @@ export default (function () {
             // TODO error
         }
     };
-
-
-    // ****** HELP FUNCTION ****** //
-
-    function selectRandomPic(arrayPic) {
-        let min = 0;
-        let max = arrayPic.length - 1;
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
 
     return {
         init,
