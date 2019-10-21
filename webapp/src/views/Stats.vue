@@ -53,7 +53,9 @@
                 </div>
 
                 <div v-else>
-
+                    <div id="chart">
+                        <apexchart type=pie width=380 :options="chartOptionsDay" :series="dayData" />
+                    </div>
                 </div>
 
             </v-container>
@@ -106,7 +108,7 @@
                 }
             ],
 
-
+            dayData: [],
             happy: [{
                 name: "Happy",
                 data: []
@@ -119,6 +121,20 @@
                 name: "Sad",
                 data: []
             }],
+            chartOptionsDay: {
+                labels: [],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            },
             chartOptionsLine1: {
                 chart: {
                     id: 'fb',
@@ -209,6 +225,11 @@
 
     .justify-space-evenly{
         justify-content: space-evenly;
+    }
+
+    #chart{
+        display: flex;
+        justify-content: center;
     }
 
 </style>
