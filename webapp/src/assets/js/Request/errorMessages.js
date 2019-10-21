@@ -10,7 +10,8 @@ export default (function () {
             week: "No stats available for the current week!",
             month: "No stats available for the current month!"
         },
-        vote: "Something went wrong, try again later!"
+        vote: "Something went wrong, try again later!",
+        login: "Auth failed, try again!"
     };
 
     return {
