@@ -6,12 +6,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        voted: null
+        voted: null,
+        login: null
     },
-    plugins: [createPersistedState()],
+    plugins: [createPersistedState({
+        paths: ["voted"]
+    })],
     mutations: {
         updateVoted(state, newDate) {
             state.voted = newDate;
+        },
+        updateLogin(state, newLogin) {
+            state.login = newLogin
         }
     },
     actions: {},
