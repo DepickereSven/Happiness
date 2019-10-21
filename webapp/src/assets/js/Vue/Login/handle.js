@@ -19,7 +19,7 @@ export default (function () {
             userName: _self.userName,
             password: _self.password
         });
-        if (result.error){
+        if (result.error) {
             showAlertMessage(_self, result.msg);
         } else {
             saveToken(_self, result.data.token);

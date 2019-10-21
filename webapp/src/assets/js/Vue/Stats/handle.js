@@ -15,13 +15,13 @@ export default (function () {
         await generateChartData(_self, 'week');
     };
 
-    async function generateChartData(_self, graphView){
+    async function generateChartData(_self, graphView) {
         let originalData = await getData(_self, graphView);
-        if (originalData.length === 0){
+        if (originalData.length === 0) {
             _self.selectedEmptyPic = _self.emptyPic[tools.selectRandomPic(_self.emptyPic)];
             _self.error = true;
         } else {
-            generateTheCorrectGraph (_self, originalData, graphView);
+            generateTheCorrectGraph(_self, originalData, graphView);
         }
     }
 
@@ -35,7 +35,7 @@ export default (function () {
         })
     }
 
-    function generateTheCorrectGraph (_self, originalData, graphView){
+    function generateTheCorrectGraph(_self, originalData, graphView) {
         switch (graphView.toLowerCase()) {
             case 'day':
                 generateDayChart(_self, originalData);
@@ -50,7 +50,7 @@ export default (function () {
         _self.error = false;
     }
 
-    function generateWeekChart (_self, originalData){
+    function generateWeekChart(_self, originalData) {
         _self.happyWeek[0].data = buildData(filter(tools.$Happy, originalData));
         _self.okWeek[0].data = buildData(filter(tools.$Ok, originalData));
         _self.sadWeek[0].data = buildData(filter(tools.$Ok, originalData));
@@ -58,7 +58,7 @@ export default (function () {
         _self.week = true;
     }
 
-    function generateMonthChart (_self, originalData){
+    function generateMonthChart(_self, originalData) {
         _self.happyMonth[0].data = buildData(filter(tools.$Happy, originalData));
         _self.okMonth[0].data = buildData(filter(tools.$Ok, originalData));
         _self.sadMonth[0].data = buildData(filter(tools.$Ok, originalData));

@@ -15,14 +15,14 @@
                     </v-img>
                     <v-card-title>
                         <div class="display-1 mb-2">Your day is done...</div>
-                        <div class="title font-weight-regular grey--text" >{{date}}, how would you rate your day?</div>
+                        <div class="title font-weight-regular grey--text">{{date}}, how would you rate your day?</div>
                     </v-card-title>
 
                     <v-divider class="mt-6 mx-4"></v-divider>
 
                     <v-card-text class="chips-centering">
                         <v-chip class="mr-2" color="green" text-color="white" @click="rate(ratings.happy)">
-                            <v-icon left>mdi-emoticon-excited-outline </v-icon>
+                            <v-icon left>mdi-emoticon-excited-outline</v-icon>
                             {{ratings.happy}}
                         </v-chip>
                         <v-chip class="mr-2" @click="rate(ratings.ok)">
@@ -50,7 +50,7 @@
                     </v-img>
                     <v-card-title>
                         <div class="display-1 mb-2">See you tomorrow</div>
-                        <div class="title font-weight-regular grey--text" >No mather how your day went, just relax and enjoy the time left!</div>
+                        <div class="title font-weight-regular grey--text">No mather how your day went, just relax and enjoy the time left!</div>
                     </v-card-title>
 
                     <v-divider class="mt-6 mx-4"></v-divider>
@@ -68,7 +68,7 @@
     import handle from "../assets/js/Vue/Vote/handle"
 
     export default {
-        created: function (){
+        created: function () {
             handle.init(this);
         },
         data: () => ({
@@ -127,7 +127,7 @@
 
 <style scoped>
 
-    .chips-centering{
+    .chips-centering {
         display: flex;
         flex-direction: row;
         justify-content: space-around;

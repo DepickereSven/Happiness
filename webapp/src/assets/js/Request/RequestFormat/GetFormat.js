@@ -10,19 +10,18 @@ export default (function () {
             headers: {
                 "Authorization": "Bearer " + fetchData.token
             }
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return {error: true, msg: '', data: response};
+            }
+        }).then(json => {
+            return {error: false, msg: 'ok', data: json};
+        }).catch(function (error) {
+            console.log('Request failed ', error);
+            return {error: true, msg: '', data: error};
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    return {error: true, msg: '', data: response};
-                }
-            }).then(json => {
-                return {error: false, msg: 'ok', data: json};
-            }).catch(function (error) {
-                console.log('Request failed ', error);
-                return {error: true, msg: '', data: error};
-            })
     };
 
     return {

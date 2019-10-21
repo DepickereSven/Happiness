@@ -9,7 +9,7 @@ const app = express();
 
 const PORT = 8001;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const router = require('./router');
@@ -21,8 +21,7 @@ app.use('/', function (req, res, next) {
 
     if ('OPTIONS' === req.method) {
         res.sendStatus(200);
-    }
-    else {
+    } else {
         next();
     }
 });

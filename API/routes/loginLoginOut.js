@@ -18,9 +18,9 @@ exports.login = function (req, res) {
         .then(function (resp) {
             if (resp.length === 1) {
                 const token = jwt.sign({
-                    userName: resp[0].userName,
-                    userId: resp[0].id
-                },
+                        userName: resp[0].userName,
+                        userId: resp[0].id
+                    },
                     $secret,
                     {
                         expiresIn: "1h"

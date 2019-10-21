@@ -38,7 +38,7 @@
 
             <v-container v-else>
 
-                <div id="wrapper" v-if="weekOrMonth" >
+                <div id="wrapper" v-if="weekOrMonth">
                     <div v-if="week">
                         <div id="chart-line">
                             <apexchart type=line height=160 :options="chartOptionsLine1" :series="happyWeek"/>
@@ -69,7 +69,7 @@
 
                 <div v-else>
                     <div id="chart">
-                        <apexchart type=pie width=500 :options="chartOptionsDay" :series="dayData" />
+                        <apexchart type=pie width=500 :options="chartOptionsDay" :series="dayData"/>
                     </div>
                 </div>
 
@@ -247,11 +247,11 @@
         width: 100%;
     }
 
-    .justify-space-evenly{
+    .justify-space-evenly {
         justify-content: space-evenly;
     }
 
-    #chart{
+    #chart {
         display: flex;
         justify-content: center;
     }

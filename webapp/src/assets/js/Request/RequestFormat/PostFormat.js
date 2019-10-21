@@ -18,7 +18,7 @@ export default (function () {
                 return {error: true, msg: response.status, data: response};
             }
         }).then(json => {
-            if (json.status){
+            if (json.status) {
                 return {error: false, msg: 'ok', data: json};
             } else {
                 return {error: true, msg: '', data: json};

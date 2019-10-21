@@ -4,7 +4,6 @@
 
             <Label class="display-4">Error 404</Label>
 
-
             <v-btn x-large color="success" dark @click="$router.push({name: 'vote'})">Go Back</v-btn>
 
         </v-layout>
@@ -19,7 +18,7 @@
 
 <style scoped>
 
-    .column-elements{
+    .column-elements {
         justify-content: space-evenly;
     }
 

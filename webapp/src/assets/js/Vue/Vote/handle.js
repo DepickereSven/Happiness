@@ -23,11 +23,9 @@ export default (function () {
             date: moment().format('YYYY-MM-DD'),
             happinessIndicator: vote.toLowerCase()
         });
-        if (result){
+        if (result) {
             _self.voted = true;
             _self.$store.commit('updateVoted', _self.date)
-        } else {
-            // TODO error
         }
     };
 
