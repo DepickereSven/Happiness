@@ -12,28 +12,52 @@ export default (function () {
         _self.chartOptionsLine1 = {..._self.chartOptionsLine1, ..._self.otherOptions};
         _self.chartOptionsLine2 = {..._self.chartOptionsLine2, ..._self.otherOptions};
         _self.chartOptionsLine3 = {..._self.chartOptionsLine3, ..._self.otherOptions};
+        await generateChartData(_self, 'day');
+    };
 
-        let originalData = await getData();
-        if (originalData.length !== 0){
+    async function generateChartData(_self, graphView){
+        let originalData = await getData(graphView);
+        if (originalData.length === 0){
             _self.selectedEmptyPic = _self.emptyPic[tools.selectRandomPic(_self.emptyPic)];
             _self.error = true;
         } else {
-            _self.happy[0].data = buildData(filter('happy', originalData));
-            _self.ok[0].data = buildData(filter('ok', originalData));
-            _self.sad[0].data = buildData(filter('sad', originalData));
+            generateTheCorrectGraph (_self, originalData, graphView);
         }
-
-
-    };
+    }
 
     // ****** HELP FUNCTION ****** //
 
-    async function getData() {
-        let result = await requestHandler.request.stats.week();
+    async function getData(graphView) {
+        let result = await requestHandler.request.stats[graphView.toLowerCase()]();
         return result.data.data.map(function (el) {
             el.date = moment(el.date).valueOf();
             return el;
         })
+    }
+
+    function generateTheCorrectGraph (_self, originalData, graphView){
+        switch (graphView.toLowerCase()) {
+            case 'day':
+                generateDayChart(_self, originalData);
+                break;
+            case 'week':
+            case 'month':
+                generateWeekOrMonthChart(_self, originalData);
+                break;
+        }
+        _self.error = false;
+    }
+
+    function generateWeekOrMonthChart (_self, originalData){
+        _self.happy[0].data = buildData(filter('happy', originalData));
+        _self.ok[0].data = buildData(filter('ok', originalData));
+        _self.sad[0].data = buildData(filter('sad', originalData));
+        _self.weekOrMonth = true;
+        console.log(_self.weekOrMonth);
+    }
+
+    function generateDayChart(_self, originalData) {
+        _self.weekOrMonth = false;
     }
 
     function buildData(filterData) {
@@ -47,7 +71,8 @@ export default (function () {
     }
 
     return {
-        init
+        init,
+        generateChartData
     }
 
 })();
