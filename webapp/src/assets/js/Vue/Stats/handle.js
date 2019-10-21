@@ -41,22 +41,33 @@ export default (function () {
                 generateDayChart(_self, originalData);
                 break;
             case 'week':
+                generateWeekChart(_self, originalData);
+                break;
             case 'month':
-                generateWeekOrMonthChart(_self, originalData);
+                generateMonthChart(_self, originalData);
                 break;
         }
         _self.error = false;
     }
 
-    function generateWeekOrMonthChart (_self, originalData){
-        _self.happy[0].data = buildData(filter(tools.$Happy, originalData));
-        _self.ok[0].data = buildData(filter(tools.$Ok, originalData));
-        _self.sad[0].data = buildData(filter(tools.$Sad, originalData));
+    function generateWeekChart (_self, originalData){
+        _self.happyWeek[0].data = buildData(filter(tools.$Happy, originalData));
+        _self.okWeek[0].data = buildData(filter(tools.$Ok, originalData));
+        _self.sadWeek[0].data = buildData(filter(tools.$Ok, originalData));
         _self.weekOrMonth = true;
-        console.log(_self.weekOrMonth);
+        _self.week = true;
+    }
+
+    function generateMonthChart (_self, originalData){
+        _self.happyMonth[0].data = buildData(filter(tools.$Happy, originalData));
+        _self.okMonth[0].data = buildData(filter(tools.$Ok, originalData));
+        _self.sadMonth[0].data = buildData(filter(tools.$Ok, originalData));
+        _self.weekOrMonth = true;
+        _self.week = false;
     }
 
     function generateDayChart(_self, originalData) {
+        resetChartData(_self);
         tools.$status.forEach(function (status) {
             let valuesFilterStatus = originalData.filter(function (el) {
                 return el.happinessIndicator === status
@@ -75,6 +86,14 @@ export default (function () {
 
     function filter(filterValue, originalData) {
         return originalData.filter(el => el.happinessIndicator === filterValue);
+    }
+
+    function resetChartData(_self) {
+        // _self.happy[0].data = [];
+        // _self.ok[0].data = [];
+        // _self.sad[0].data = [];
+        _self.dayData = [];
+        _self.chartOptionsDay.labels = [];
     }
 
     return {
