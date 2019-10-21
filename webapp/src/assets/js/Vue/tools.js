@@ -11,9 +11,20 @@ export default (function () {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    const $Happy = 'happy';
+    const $Ok = 'ok';
+    const $Sad = 'sad';
+
+    const $status = [$Happy, $Ok, $Sad];
+
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    };
 
     return {
-        selectRandomPic
+        selectRandomPic,
+        $Happy, $Ok, $Sad,
+        $status
     }
 
 })();
