@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "apexcharts": "^3.28.1",
+    "apexcharts": "^3.28.2",
     "core-js": "^3.17.3",
     "moment": "^2.29.1",
     "vue": "^2.6.14",
