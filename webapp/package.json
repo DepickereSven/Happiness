@@ -10,7 +10,7 @@
     "apexcharts": "^3.35.5",
     "core-js": "^3.26.0",
     "moment": "^2.29.4",
-    "vue": "^3.2.40",
+    "vue": "^3.2.41",
     "vue-apexcharts": "^1.6.2",
     "vue-router": "^4.1.6",
     "vuetify": "^2.6.11",
