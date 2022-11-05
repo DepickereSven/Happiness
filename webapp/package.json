@@ -14,7 +14,7 @@
     "vue-apexcharts": "^1.6.2",
     "vue-router": "^4.1.6",
     "vuetify": "^2.6.11",
-    "vuex": "^4.0.2",
+    "vuex": "^4.1.0",
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
