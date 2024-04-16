@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "apexcharts": "^3.48.0",
-    "core-js": "^3.36.1",
+    "core-js": "^3.37.0",
     "moment": "^2.30.1",
     "vue": "^3.4.21",
     "vue-apexcharts": "^1.6.2",
